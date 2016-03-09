@@ -1,0 +1,76 @@
+<html>
+<head>
+  <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script-->
+  <meta name="viewport" content="initial-scale=1">
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+
+    body{
+      background: url(img/team_photo_2015.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    canvas {
+      position: fixed;
+      cursor: pointer;
+    }
+
+    #static {
+      z-index: 10;
+    }
+
+    #redraw {
+      z-index: 100;
+    }
+    #fullscreen {
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+    }
+  </style>
+</head>
+<body>
+<div id="fullscreen"></div>
+<canvas id="static" width="300" height="300">
+  We're sorry. The program you're using to browse the internet is too old to party.
+</canvas>
+<canvas id="redraw" width="1" height="1"></canvas>
+
+
+<script src="js/util.js"></script>
+<script src="js/Strip.js"></script>
+<script src="js/StripCanvas.js"></script>
+<script src="js/Wrapper.js"></script>
+<script>
+
+  var GLOBAL_WIDTH = 0, // set to adjusted canvas width on init
+      GLOBAL_HEIGHT = 0, // set to adjusted canvas height on init
+      GLOBAL_DEBUG = true,
+      TEXTURE_IMAGE_SRC = window.innerWidth > 700? 'img/duct_strip_260.png' : 'img/duct_strip_130.png';
+
+  // Create a placeholder to load the texture image
+  var ddtImage = new Image();
+
+  // Once the texture image is loaded, initialize the wrapper
+  ddtImage.addEventListener("load", function(){
+    Wrapper.init({
+      boardId: 'static',
+      containerId  : 'fullscreen',
+      wrapImage : ddtImage
+  })});
+
+  // Assign the source to load the texture image
+  ddtImage.src = TEXTURE_IMAGE_SRC;
+
+</script>
+</body>
+</html>
