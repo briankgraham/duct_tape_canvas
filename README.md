@@ -80,27 +80,27 @@ Rather than be represented by a coordinate set in space, strips are represented 
 a single line equation in the coordinate space. See the object initializer in
 `strip.js`.
 
-![strips are represented as line formulas](https://github.com/mancrates/canvas_project/blob/master/project/strip_line_formula.jpg)
+![strips are represented as line formulas](https://github.com/mancrates/duct_tape_canvas/blob/master/project/strip_line_formula.jpg)
 
 From this single line equation we can derive everything we need and algebraically
 see if a click at a given coordinate falls within the strip's boundaries. See the
 `Strip.prototype.contains(coord)` method in `strip.js`
 
-![the line formula lets us solve collision detection hella fast](https://github.com/mancrates/canvas_project/blob/master/project/strip_collision_detection.jpg)
+![the line formula lets us solve collision detection hella fast](https://github.com/mancrates/duct_tape_canvas/blob/master/project/strip_collision_detection.jpg)
 
 We want our clicks to interact with the highest strip, and because we're using the sort
 order of the `Wrapper.strips` array to store our strip depth order we can easily iterate
 from last to first to see which strip our click hits first. See `getClickedStripIndex(coord)`
 in `Wrapper.js`
 
-![the line formula lets us solve collision detection hella fast](https://github.com/mancrates/canvas_project/blob/master/project/strip_sorted_depth_collision.jpg)
+![the line formula lets us solve collision detection hella fast](https://github.com/mancrates/duct_tape_canvas/blob/master/project/strip_sorted_depth_collision.jpg)
 
 We can even use this same algebraic advantage to check to see if strips overlap by
 solving the lines against each other to see if any of the 4 possible intersections
 exist within our board space. The algebra work is already done for you in the
 `getLineIntersection(lineA, lineB, topLeft, bottomRight)` method in `util.js`
 
-![here's the business right here](https://github.com/mancrates/canvas_project/blob/master/project/multi_strip_collisions.jpg)
+![here's the business right here](https://github.com/mancrates/duct_tape_canvas/blob/master/project/multi_strip_collisions.jpg)
 
 #Coding Challenges
 
@@ -136,7 +136,8 @@ If you do decide to go down this rabbit hole, you'll rewrite the
 in a duct tape texture and combine it with the `strip.color` property to render out a
 fancy version of the duct tape.
 
-![for inspiration](https://github.com/mancrates/canvas_project/blob/master/project/ddt_texture_inspiration.jpg?raw=true)
+![for inspiration](https://github.com/mancrates/duct_tape_canvas/blob/master/project/ddt_texture_inspiration.jpg?raw=true)
+
 
 Unlike the other challenges, gauging success on this one is primarily up to you. Here's
 a screenshot of what our canvas looked like with a fancier drawing routine, but take this
@@ -183,7 +184,7 @@ they're obstructing the first strip. Red is usually a good color for that kind o
 
 #Thanks for Joining Us Today!
 
-![mancrates holiday success](https://github.com/mancrates/canvas_project/blob/master/project/join_us.jpg?raw=true)
+![mancrates holiday success](https://github.com/mancrates/duct_tape_canvas/blob/master/project/join_us.jpg?raw=true)
 We're so happy you decided to spend this time with us and hope to see you soon!
 
 Cheers!
