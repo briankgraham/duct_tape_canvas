@@ -71,6 +71,13 @@ var Wrapper = (function () {
     getOverlappingStrips: function (index) {
       // initialize the array of overlapping indices, if any
       var overlaps = [];
+      if (index === 0) { return overlaps; }
+      for (var i = index - 1; i >= 0; i--) {
+        if (this.strips[index].overlaps(this.strips[i])) {
+          overlaps.push(i);
+        }
+      }
+      console.log('overlaps: ', overlaps);
       return overlaps;
     },
 

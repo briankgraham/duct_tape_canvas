@@ -50,8 +50,14 @@ Strip.prototype.contains = function(coord) {
    - method should return true / false to indicate if there's an overlap
 */
 Strip.prototype.overlaps = function(otherStrip){
-
-
-  return false;
+  var line1 = {
+    m: Math.tan(this.rotation),
+    b: this.offset
+  }
+  var line2 = {
+    m: Math.tan(otherStrip.rotation),
+    b: otherStrip.offset
+  }
+  return getLineIntersection(line1, line2, {x:0, y: 0}, {x: window.width, y: window.height});
 };
 

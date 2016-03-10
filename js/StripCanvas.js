@@ -13,6 +13,8 @@ StripCanvas.prototype.init = function (canvasElem, container) {
   canvasElem.height = container.clientHeight;
   this.width = container.clientWidth;
   this.height = container.clientHeight;
+  window.width = this.width;
+  window.height = this.height;
   this.context = canvasElem.getContext('2d');
   return this;
 };
